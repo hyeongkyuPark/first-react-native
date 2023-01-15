@@ -13,7 +13,7 @@ const ModalCompnent = () => {
     <View style={{width: '100%'}}>
       <Button title="open modal" onPress={toggleModalOpen} />
       <Modal visible={isOpen}>
-        <View style={{marginTop: 60}}>
+        <View>
           <Text>test</Text>
           <Button title="close modal" onPress={toggleModalOpen} />
         </View>
