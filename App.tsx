@@ -18,12 +18,14 @@ import TutorialPage from 'src/pages/Tutorial';
 import LoginPage from 'src/pages/Login';
 import MainTab from 'src/routes/tabNavigations/MainTabs';
 import ImagePikerPage from 'src/pages/ImagePick';
+import AnimationPage from 'src/pages/Animation';
 
 export type RootStackParamList = {
   Tutorial: undefined;
   Login: undefined;
   Main: undefined;
   ImagePicker: undefined;
+  AnimationPage: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -31,7 +33,7 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 const App = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="ImagePicker">
+      <Stack.Navigator initialRouteName="AnimationPage">
         <Stack.Screen name="Tutorial" component={TutorialPage} />
         <Stack.Screen name="Login" component={LoginPage} />
         <Stack.Screen
@@ -42,6 +44,7 @@ const App = () => {
           }}
         />
         <Stack.Screen name="ImagePicker" component={ImagePikerPage} />
+        <Stack.Screen name="AnimationPage" component={AnimationPage} />
       </Stack.Navigator>
     </NavigationContainer>
   );
