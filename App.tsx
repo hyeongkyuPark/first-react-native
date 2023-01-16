@@ -17,11 +17,13 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import TutorialPage from 'src/pages/Tutorial';
 import LoginPage from 'src/pages/Login';
 import MainTab from 'src/routes/tabNavigations/MainTabs';
+import ImagePikerPage from 'src/pages/ImagePick';
 
 export type RootStackParamList = {
   Tutorial: undefined;
   Login: undefined;
   Main: undefined;
+  ImagePicker: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -29,7 +31,7 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 const App = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Tutorial">
+      <Stack.Navigator initialRouteName="ImagePicker">
         <Stack.Screen name="Tutorial" component={TutorialPage} />
         <Stack.Screen name="Login" component={LoginPage} />
         <Stack.Screen
@@ -39,6 +41,7 @@ const App = () => {
             headerShown: false,
           }}
         />
+        <Stack.Screen name="ImagePicker" component={ImagePikerPage} />
       </Stack.Navigator>
     </NavigationContainer>
   );
