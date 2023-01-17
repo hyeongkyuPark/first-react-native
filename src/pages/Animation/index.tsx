@@ -2,30 +2,29 @@ import React, {useRef} from 'react';
 import {Animated, Button, StyleSheet, View} from 'react-native';
 
 const AnimationPage = () => {
-  const animation = useRef(new Animated.ValueXY({x: 0, y: 0})).current;
+  const animation = useRef(new Animated.Value(0)).current;
   return (
     <View>
       <Animated.View
         style={[
           styles.rectangle,
           {
-            transform: [
-              {
-                translateX: animation.x,
-              },
-              {
-                translateY: animation.y,
-              },
-            ],
+            opacity: animation,
+            top: animation.interpolate({
+              inputRange: [0, 1],
+              outputRange: [200, 0],
+            }),
           },
         ]}
       />
       <Button
         title="FadeIn"
         onPress={() => {
+          console.log('test>>>>');
+
           Animated.timing(animation, {
-            toValue: {x: 100, y: 100},
-            useNativeDriver: true,
+            toValue: 1,
+            useNativeDriver: false,
           }).start();
         }}
       />
@@ -33,8 +32,8 @@ const AnimationPage = () => {
         title="FadeOut"
         onPress={() => {
           Animated.timing(animation, {
-            toValue: {x: 0, y: 0},
-            useNativeDriver: true,
+            toValue: 0,
+            useNativeDriver: false,
           }).start();
         }}
       />
